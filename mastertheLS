@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -p -a -t --group-directories-first --ignore={.,..} | grep -v '/$' |paste -sd ','
