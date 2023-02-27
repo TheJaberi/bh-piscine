@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	name := "abcdefghijklmnopqrstuvwxyz"
-	fmt.Println(name)
+	for ch := 'a'; ch <= 'z'; ch++ {
+		fmt.Printf("%c", ch)
+	}
+	fmt.Println()
 }
