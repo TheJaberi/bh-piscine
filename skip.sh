@@ -1,1 +1,1 @@
-awk '{ print; getline; getline}' 
+ls -1 | sed 'l!n;d'
