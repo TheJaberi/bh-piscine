@@ -1,1 +1,2 @@
-ls -l | sed '1!n;d'
+#!/bin/sh
+echo "dartey henv"
