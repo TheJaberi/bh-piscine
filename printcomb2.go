@@ -13,6 +13,9 @@ func printcomb2() {
 						z01.PrintRune(' ')
 						z01.PrintRune(z)
 						z01.PrintRune(a)
+						if x == '9' && y == '8' && z == '9' && a == '9' {
+							return
+						}
 						z01.PrintRune(',')
 						z01.PrintRune(' ')
 					}
