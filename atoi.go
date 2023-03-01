@@ -8,15 +8,15 @@ func Atoi(s string) int {
 	pl := 1
 
 	if s != "" {
-		if byte(a_s[0]) == 45 {
+		if a_s[0] == '-' {
 			pl = -1
 			a_s[0] = '0'
-		} else if byte(a_s[0]) == 43 {
+		} else if a_s[0] == '+' {
 			a_s[0] = '0'
 		}
 	}
 	for _, word := range a_s {
-		if byte(word) >= 48 && byte(word) <= 57 {
+		if word >= '0' && word <= '9' {
 			for i := '0'; i < word; i++ {
 				c++
 			}
