@@ -1,56 +1,50 @@
-package piscine
+package main
 
-import "github.com/01-edu/z01"
+import (
+	"github.com/01-edu/z01"
+)
 
-var ans [8]rune
-var ban [9]bool
-var ans2 [9]int
-
+func main() {
+	EightQueens()
+}
 func EightQueens() {
-	ok := true
-	cnt := 0
-	for i := 1; i <= 8; i++ {
-		if ban[i] == false {
-			ok = false
-			//	break
-		} else {
-			cnt++
-		}
-	}
+	solve(0)
+}
 
-	if ok == true {
-		for _, c := range ans {
-			z01.PrintRune(c)
+const n = 8
+
+var position [n]int
+
+func isSafe(queen int, row int) bool {
+	return safe(queen, row, 0)
+}
+func safe(queen int, row int, i int) bool {
+	if i == queen {
+		return true
+	}
+	otherRow := position[i]
+	if otherRow == row || otherRow == row-(queen-i) || otherRow == row+(queen-i) {
+		return false
+	}
+	return safe(queen, row, i+1)
+}
+func solve(k int) {
+	if k == n {
+		for i := 0; i < n; i++ {
+			z01.PrintRune(rune(position[i] + '1'))
 		}
 		z01.PrintRune('\n')
-
+	} else {
+		try(k, 0)
+	}
+}
+func try(k int, i int) {
+	if i == n {
 		return
 	}
-	for i := '1'; i <= '8'; i++ {
-		cur := 0
-		for j := '1'; j <= i; j++ {
-			cur++
-		}
-		if ban[cur] == false {
-			put := true
-			for j := 1; j <= cnt; j++ {
-				if cur == ans2[j]-(cnt+1-j) || cur == ans2[j]+(cnt+1-j) {
-					put = false
-					break
-				} /*
-					fmt.Print(ans2[j])
-					fmt.Print(" ")*/
-
-			}
-			if put == true {
-				ban[cur] = true
-				ans[cnt] = i
-				ans2[cnt+1] = cur
-				EightQueens()
-				ban[cur] = false
-				//ans2[cnt+1] = 0
-
-			}
-		}
+	if isSafe(k, i) {
+		position[k] = i
+		solve(k + 1)
 	}
+	try(k, i+1)
 }
