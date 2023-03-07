@@ -13,7 +13,7 @@ func main() {
 	for i := range my_ar_1 {
 		ln = i
 	}
-	for i := 0; i <= ln; i++ {
+	for i := 1; i <= ln; i++ {
 		for j := 0; j <= ln; j++ {
 			if my_ar_1[i] < my_ar_2[j] {
 				my_ar_2[j], my_ar_1[i] = my_ar_1[i], my_ar_2[j]
