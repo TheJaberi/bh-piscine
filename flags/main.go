@@ -35,7 +35,6 @@ func help() {
 }
 
 func main() {
-
 	myArr := os.Args[1:]
 	ln := -1
 
@@ -45,10 +44,8 @@ func main() {
 	if ln != -1 {
 		if myArr[0] == "-h" || myArr[0] == "--help" {
 			help()
-
 		} else if myArr[0] == "--order" || myArr[0] == "-o" {
 			order(myArr[1])
-
 		} else if myArr[0][0:3] == "--i" || myArr[0][0:2] == "-i" {
 			if ln < 2 {
 				if myArr[0][0:3] == "--i" {

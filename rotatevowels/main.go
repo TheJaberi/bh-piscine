@@ -10,6 +10,7 @@ func check(x rune) bool {
 	if x == 'a' || x == 'A' || x == 'e' || x == 'E' || x == 'o' || x == 'O' || x == 'u' || x == 'U' || x == 'i' || x == 'I' {
 		return true
 	}
+
 	return false
 }
 func main() {
