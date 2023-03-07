@@ -7,25 +7,22 @@ import (
 )
 
 func main() {
-	arguments := os.Args[1:]
-	caps := false
-	for _, v := range arguments {
-		if v == "--upper" {
-			caps = true
+	arg := os.Args[1:]
+	charCase := 0
+	for ind := range arg {
+		if ind == 0 && arg[ind] == "--upper" {
+			charCase = -32
+			arg = arg[1:]
 		}
 	}
-	for _, arg := range arguments {
-		numv := 0
-		for _, v := range arg {
-			numv = numv*10 + int(v-'0')
+	for _, a := range arg {
+		digit := 0
+		for _, b := range a {
+			digit = digit*10 + int(b-'0')
 		}
-		if numv >= 1 && numv <= 26 {
-			if caps {
-				z01.PrintRune(rune(numv + 96))
-			} else {
-				z01.PrintRune(rune(numv + 64))
-			}
-		} else if arguments[1] != "--upper" {
+		if 1 <= digit && digit <= 26 {
+			z01.PrintRune('a' + rune(digit+charCase) - 1)
+		} else {
 			z01.PrintRune(' ')
 		}
 	}
