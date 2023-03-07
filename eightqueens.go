@@ -40,7 +40,6 @@ func EightQueens() {
 				} /*
 					fmt.Print(ans2[j])
 					fmt.Print(" ")*/
-
 			}
 			//	fmt.Println("    <<< THIS SHIT")
 			if put == true {
@@ -49,7 +48,7 @@ func EightQueens() {
 				ans2[cnt+1] = cur
 				EightQueens()
 				ban[cur] = false
-				//ans2[cnt+1] = 0
+				// ans2[cnt+1] = 0
 
 			}
 		}
