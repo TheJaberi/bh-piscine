@@ -1,10 +1,8 @@
 package piscine
 
 func TrimAtoi(s string) int {
-
 	o_number := 0
 	c := 0
-
 	a_s := []rune(s)
 	pl := 1
 	minus_pos := 0
@@ -17,7 +15,6 @@ func TrimAtoi(s string) int {
 			minus_have = true
 		}
 	}
-
 	for _, word := range a_s {
 		if word >= '0' && word <= '9' {
 			for i := '0'; i < word; i++ {
@@ -27,7 +24,6 @@ func TrimAtoi(s string) int {
 			c = 0
 		}
 	}
-
 	if minus_have {
 		for index, num := range a_s {
 			if num >= '0' && num <= '9' {
@@ -36,11 +32,8 @@ func TrimAtoi(s string) int {
 			}
 		}
 	}
-
 	if first_num > minus_pos {
 		pl = -1
 	}
-
 	return o_number * pl
-
 }
