@@ -21,7 +21,7 @@ func main() {
 		for _, s := range os.Args[1:] {
 			file, err := os.Open(s)
 			if err != nil {
-				printStr(err.Error())
+				printStr((err.Error()[6:]))
 				break
 			} else {
 				data, err := ioutil.ReadAll(file)
