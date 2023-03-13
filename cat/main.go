@@ -17,8 +17,21 @@ func printStr(str string) {
 
 func main() {
 	args := os.Args[1:]
-	if 1 != len(args) {
-		for _, s := range os.Args[1:] {
+	if len(os.Args) == 1 {
+		data, err := ioutil.ReadAll(os.Stdin)
+		if err != nil {
+			printStr("ERROR: ")
+			printStr(err.Error())
+			z01.PrintRune(10)
+			os.Exit(1)
+		}
+		for _, w := range data {
+			c := rune(w)
+			z01.PrintRune(c)
+		}
+	}
+	if 0 != len(args) {
+		for _, s := range args {
 			file, err := ioutil.ReadFile(s)
 			if err != nil {
 				printStr("ERROR: ")
