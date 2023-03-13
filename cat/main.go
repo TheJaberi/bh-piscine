@@ -12,7 +12,6 @@ func printStr(str string) {
 	for i := 0; i < len(arrayStr); i++ {
 		z01.PrintRune(arrayStr[i])
 	}
-	z01.PrintRune('\n')
 }
 
 func main() {
