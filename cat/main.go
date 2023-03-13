@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io/ioutil"
 	"os"
 
 	"github.com/01-edu/z01"
@@ -15,26 +16,22 @@ func printStr(str string) {
 }
 
 func main() {
-	if len(os.Args) == 1 {
-		return
-	} else {
-		os.Args = os.Args[1:]
-
-		for _, v := range os.Args {
-			file, err := os.Open(v)
+	args := os.Args[1:]
+	if 0 != len(args) {
+		for _, s := range os.Args[1:] {
+			file, err := os.Open(s)
 			if err != nil {
-				s := err.Error()
-				printStr(s)
-				return
+				printStr(err.Error())
+				break
 			} else {
-				data := make([]byte, 443)
-				file.Read(data)
-				if len(os.Args) == 1 {
-					printStr(string(data))
+				data, err := ioutil.ReadAll(file)
+				if err != nil {
+					printStr(err.Error())
+					break
 				} else {
+					printStr("%s")
 					printStr(string(data))
 				}
-				file.Close()
 			}
 		}
 	}
