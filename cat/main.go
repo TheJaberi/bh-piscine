@@ -26,12 +26,7 @@ func main() {
 				z01.PrintRune(10)
 				os.Exit(1)
 			} else {
-				if err != nil {
-					printStr(err.Error())
-					break
-				} else {
-					printStr(string(file))
-				}
+				printStr(string(file))
 			}
 		}
 	}
