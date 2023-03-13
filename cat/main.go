@@ -23,7 +23,7 @@ func main() {
 			if err != nil {
 				printStr("Error: ")
 				printStr(err.Error())
-				break
+				os.Exit(1)
 			} else {
 				data, err := ioutil.ReadAll(file)
 				if err != nil {
