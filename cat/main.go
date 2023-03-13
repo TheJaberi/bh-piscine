@@ -19,19 +19,18 @@ func main() {
 	args := os.Args[1:]
 	if 1 != len(args) {
 		for _, s := range os.Args[1:] {
-			file, err := os.Open(s)
+			file, err := ioutil.ReadFile(s)
 			if err != nil {
 				printStr("ERROR: ")
 				printStr(err.Error())
 				z01.PrintRune(10)
 				os.Exit(1)
 			} else {
-				data, err := ioutil.ReadAll(file)
 				if err != nil {
 					printStr(err.Error())
 					break
 				} else {
-					printStr(string(data))
+					printStr(string(file))
 				}
 			}
 		}
