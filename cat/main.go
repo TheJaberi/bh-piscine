@@ -29,7 +29,6 @@ func main() {
 					printStr(err.Error())
 					break
 				} else {
-					printStr("%s")
 					printStr(string(data))
 				}
 			}
