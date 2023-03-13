@@ -26,7 +26,10 @@ func main() {
 				z01.PrintRune(10)
 				os.Exit(1)
 			} else {
-				printStr(string(file))
+				for _, w := range file {
+					c := rune(w)
+					z01.PrintRune(c)
+				}
 			}
 		}
 	}
