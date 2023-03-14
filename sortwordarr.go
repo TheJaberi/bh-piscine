@@ -1,31 +1,16 @@
 package piscine
 
 func SortWordArr(array []string) {
-	ech := ""
-	for i := 0; i < len(array); i++ {
-		for j := i + 1; j < len(array); j++ {
-			a := []byte(array[j])
-			b := []byte(array[i])
-			if comparearrayascii(a, b) {
-				ech = array[i]
-				array[i] = array[j]
-				array[j] = ech
+	// Define a slice of strings
+	result := []string(array)
+
+	// Sort the slice using our own sorting algorithm
+	for i := 0; i < len(result)-1; i++ {
+		for j := i + 1; j < len(result); j++ {
+			if result[i] > result[j] {
+				// Swap the values at indices i and j
+				result[i], result[j] = result[j], result[i]
 			}
 		}
 	}
-}
-
-func comparearrayascii(a, b []byte) bool {
-	n := 0
-	if len(a) <= len(b) {
-		n = len(a)
-	} else {
-		n = len(b)
-	}
-	for i := 0; i < n; i++ {
-		if b[i] < a[i] {
-			return false
-		}
-	}
-	return true
 }
