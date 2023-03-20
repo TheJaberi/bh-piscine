@@ -3,17 +3,14 @@ package piscine
 func Index(s, t string) int {
 	ln := 0
 	ln2 := 0
-	for _, c := range s {
-		if c == c {
-			ln++
-		}
+	for range s {
+		ln++
 	}
 
-	for _, c := range t {
-		if c == c {
-			ln2++
-		}
+	for range t {
+		ln2++
 	}
+
 	for i := 0; i < ln; i++ {
 		if ln2 != 0 && s[i] == t[0] {
 			ok := true
@@ -25,7 +22,7 @@ func Index(s, t string) int {
 				}
 				cur_ch++
 			}
-			if ok == true {
+			if ok {
 				return i
 			}
 		}
