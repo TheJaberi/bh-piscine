@@ -1,6 +1,6 @@
 package piscine
 
-func Listlast(l *List) interface{} {
+func ListLast(l *List) interface{} {
 	node := l.Head
 	for node != nil {
 		if node.Next == nil {
