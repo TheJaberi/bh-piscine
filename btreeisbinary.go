@@ -1,6 +1,10 @@
 package piscine
 
 func BTreeIsBinary(root *TreeNode) bool {
+	if root == nil {
+		return true
+	}
+
 	return isSubtreeLesser(root.Left, root.Data) &&
 		isSubtreeGreater(root.Right, root.Data) &&
 		BTreeIsBinary(root.Left) &&
