@@ -1,11 +1,5 @@
 package piscine
 
-type TreeNode struct {
-	Data  string
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func BTreeIsBinary(root *TreeNode) bool {
 	return isSubtreeLesser(root.Left, root.Data) &&
 		isSubtreeGreater(root.Right, root.Data) &&
